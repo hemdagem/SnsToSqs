@@ -8,14 +8,14 @@ resource "aws_sqs_queue_policy" "queue_policy" {
 
   policy = <<POLICY
 {
-  "Version": "2018-02-20",
+  "Version": "2012-10-17",
   "Id": "sqspolicy",
   "Statement": [
     {
       "Sid": "First",
       "Effect": "Allow",
       "Principal": "*",
-      "Action": ["sqs:ReceiveMessage", "sqs:SendMessage"],
+      "Action":["sqs:ReceiveMessage", "sqs:SendMessage"],
       "Resource": "${aws_sqs_queue.user_updates_queue.arn}",
       "Condition": {
         "ArnEquals": {
